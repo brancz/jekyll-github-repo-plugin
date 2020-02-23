@@ -6,7 +6,7 @@ module Jekyll
     # use in this format: "user/repo"
     def initialize(tag_name, text, tokens)
       super
-      api_url = "https://api.github.com/repos/#{text}"
+      api_url = "https://api.github.com/repos/#{text.strip}"
       @repo = JSON.parse(open(api_url).read)
     end
 
